@@ -13,22 +13,15 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class UnknownExceptionHandler {
 
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(Throwable.class)
+    public ErrorResponse handleApiException(Throwable ex) {
 
-  @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-  @ExceptionHandler(Throwable.class)
-  public ErrorResponse handleApiException(Throwable ex) {
+        StringWriter sw = new StringWriter();
+        ex.printStackTrace(new PrintWriter(sw));
+        log.error("Internal Server Error Occurred {}", sw.toString());
 
-    StringWriter sw = new StringWriter();
-    ex.printStackTrace(new PrintWriter(sw));
-    log.error("Internal Server Error Occurred {}", sw.toString());
-
-    GlobalExceptionType type = GlobalExceptionType.INTERNAL_SERVER_ERROR;
-    return new ErrorResponse(
-        type.getCode(),
-        type.getMessage(),
-        LocalDateTime.now()
-    );
-  }
-
-
+        GlobalExceptionType type = GlobalExceptionType.INTERNAL_SERVER_ERROR;
+        return new ErrorResponse(type.getCode(), type.getMessage(), LocalDateTime.now());
+    }
 }
