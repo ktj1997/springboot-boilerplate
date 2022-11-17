@@ -1,4 +1,4 @@
-package spring.layer.template.config.exception;
+package spring.layer.template.config.web.response;
 
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
