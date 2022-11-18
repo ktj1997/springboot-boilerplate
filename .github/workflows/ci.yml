@@ -8,8 +8,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      APP_JWT_SECRET: ${{ secrets.JWT_SECRET }}
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 11
@@ -29,3 +27,9 @@ jobs:
         run: chmod +x gradlew
       - name: Lint Check
         run: ./gradlew spotlessCheck
+
+      - name: UnitTest
+        run: ./gradlew unitTest
+
+      - name: IntegrationTest
+        run: ./gradlew integrationTest

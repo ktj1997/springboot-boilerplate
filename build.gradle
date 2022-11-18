@@ -10,6 +10,7 @@ ext {
     lombokMapStructBindingVersion = "0.2.0"
     testcontainersVersion = "1.17.4"
     swaggerVersion = "3.0.0"
+    archUnitVersion = "1.0.0"
 }
 
 
@@ -54,12 +55,35 @@ dependencies {
 
 
     testImplementation 'org.testcontainers:junit-jupiter'
+    implementation "com.tngtech.archunit:archunit:${archUnitVersion}"
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-tasks.named('test') {
+tasks.named('test',Test) {
     useJUnitPlatform()
 }
+
+tasks.register('integrationTest',Test) {
+    group = "verification"
+    description = "integrationTest"
+
+    useJUnitPlatform {
+        includeTags("integration")
+        excludeTags("unit")
+    }
+}
+
+tasks.register('unitTest',Test) {
+    group = "verification"
+    description = "unitTest"
+
+    useJUnitPlatform {
+        includeTags("unit")
+        excludeTags("integration")
+    }
+}
+
+
 
 spotless {
     java {
