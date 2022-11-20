@@ -1,4 +1,4 @@
-package spring.layer.template.config.web;
+package spring.layer.template.config.web.json;
 
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;

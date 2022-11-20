@@ -1,4 +1,4 @@
-package spring.layer.template.config.swagger;
+package spring.layer.template.config.web.swagger;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
