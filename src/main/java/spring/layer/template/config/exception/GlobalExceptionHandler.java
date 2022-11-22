@@ -5,6 +5,7 @@ import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -20,6 +21,13 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(ApiException.class)
     public ErrorResponse handleApiException(ApiException ex) {
         return new ErrorResponse(ex.getCode(), ex.getMessage(), LocalDateTime.now());
+    }
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
+    public ErrorResponse handleNotFound(HttpRequestMethodNotSupportedException ex) {
+        GlobalExceptionType type = GlobalExceptionType.HANDLER_NOT_FOUND;
+        return new ErrorResponse(type.getCode(), type.getMessage(), LocalDateTime.now());
     }
 
     /**
