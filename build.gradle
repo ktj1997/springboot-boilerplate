@@ -7,12 +7,13 @@ plugins {
 }
 
 ext {
-    mapStructVersion = "1.5.3.Final"
-    lombokMapStructBindingVersion = "0.2.0"
-    testcontainersVersion = "1.17.4"
     swaggerVersion = "3.0.0"
     archUnitVersion = "1.0.0"
     queryDslVersion = "5.0.0"
+    springCloudVersion = '2021.0.4'
+    mapStructVersion = "1.5.3.Final"
+    testcontainersVersion = "1.17.4"
+    lombokMapStructBindingVersion = "0.2.0"
 }
 
 
@@ -23,6 +24,12 @@ sourceCompatibility = '11'
 configurations {
     compileOnly {
         extendsFrom annotationProcessor
+    }
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
     }
 }
 
@@ -39,11 +46,10 @@ repositories {
 
 
 dependencies {
+    runtimeOnly 'mysql:mysql-connector-java'
 
     compileOnly 'org.projectlombok:lombok'
     compileOnly "org.mapstruct:mapstruct:${mapStructVersion}"
-
-    runtimeOnly 'mysql:mysql-connector-java'
 
     annotationProcessor 'org.projectlombok:lombok'
     annotationProcessor("com.querydsl:querydsl-apt:${queryDslVersion}")
@@ -58,7 +64,7 @@ dependencies {
 
     implementation "io.springfox:springfox-swagger-ui:${swaggerVersion}"
     implementation "io.springfox:springfox-boot-starter:${swaggerVersion}"
-
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
 
     testImplementation 'org.testcontainers:junit-jupiter'
     implementation "com.tngtech.archunit:archunit:${archUnitVersion}"

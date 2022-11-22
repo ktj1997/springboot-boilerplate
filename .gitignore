@@ -19,7 +19,7 @@ mylog.txt
 *.iws
 *.iml
 *.ipr
-out/
+
 !src/application/src/main/**/out/
 !src/application/src/test/**/out/
 
