@@ -89,10 +89,7 @@ class ModuleDependencyTests {
                         .resideInAnyPackage("..adapter.out.persistence..")
                         .should()
                         .onlyBeAccessed()
-                        .byAnyPackage(
-                                "..domain.model..",
-                                "..domain.port.out.repository..",
-                                "..adapter.out.persistence..");
+                        .byAnyPackage("..adapter.out.persistence..");
 
         /** Gateway Output Adapter Check */
         ArchRule gatewayOutputAdapterDependencyRule =
@@ -101,7 +98,7 @@ class ModuleDependencyTests {
                         .resideInAnyPackage("..adapter.out.gateway..")
                         .should()
                         .onlyBeAccessed()
-                        .byAnyPackage("..domain.port.out.gateway..", "..adapter.out.gateway..");
+                        .byAnyPackage("..adapter.out.gateway..");
 
         /** Message Output Adapter Check */
         ArchRule messageOutputAdapterDependencyRule =
