@@ -1,4 +1,4 @@
-package spring.layer.template.config.persistence.querydsl;
+package spring.layer.infrastructure.config.persistence.querydsl;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import javax.persistence.EntityManager;
