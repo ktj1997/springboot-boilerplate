@@ -19,7 +19,7 @@ public class SwaggerConfig {
     return new Docket(DocumentationType.OAS_30)
         .apiInfo(apiInfo())
         .select()
-        .apis(RequestHandlerSelectors.basePackage("spring.layer.template"))
+        .apis(RequestHandlerSelectors.basePackage("spring.layer.api"))
         .paths(PathSelectors.any())
         .build();
   }

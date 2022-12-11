@@ -15,7 +15,7 @@ public class SampleUseCase {
 
   @Transactional
   public SampleUseCaseDto.Response sample(SampleUseCaseDto.Request request) {
-    Sample sample = sampleFlow.findSample();
+    Sample sample = sampleFlow.findSample(1L);
     return new SampleUseCaseDto.Response();
   }
 }
