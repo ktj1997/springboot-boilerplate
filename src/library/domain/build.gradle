@@ -9,8 +9,6 @@ ext{
 dependencies {
 
     annotationProcessor("com.querydsl:querydsl-apt:${queryDslVersion}")
-
-    implementation("com.querydsl:querydsl-jpa:${queryDslVersion}")
     implementation 'org.springframework.boot:spring-boot-starter'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
