@@ -7,123 +7,62 @@ plugins {
 }
 
 ext {
-    swaggerVersion = "3.0.0"
-    archUnitVersion = "1.0.0"
-    queryDslVersion = "5.0.0"
-    springCloudVersion = '2021.0.4'
     mapStructVersion = "1.5.3.Final"
-    testcontainersVersion = "1.17.4"
     lombokMapStructBindingVersion = "0.2.0"
+    springCloudVersion = '2021.0.4'
 }
 
+subprojects{
 
-group = 'spring.layer'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'com.diffplug.spotless'
 
-configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
-    }
-}
+    group = 'spring.layer'
+    version = '0.0.1-SNAPSHOT'
+    sourceCompatibility = '11'
 
-dependencyManagement {
-    imports {
-        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
-    }
-}
-
-dependencyManagement {
-    imports {
-        mavenBom "org.testcontainers:testcontainers-bom:${testcontainersVersion}"
-    }
-}
-
-
-repositories {
-    mavenCentral()
-}
-
-
-dependencies {
-    runtimeOnly 'mysql:mysql-connector-java'
-
-    compileOnly 'org.projectlombok:lombok'
-    compileOnly "org.mapstruct:mapstruct:${mapStructVersion}"
-
-    annotationProcessor 'org.projectlombok:lombok'
-    annotationProcessor("com.querydsl:querydsl-apt:${queryDslVersion}")
-    annotationProcessor "org.mapstruct:mapstruct-processor:${mapStructVersion}"
-    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
-    annotationProcessor "org.projectlombok:lombok-mapstruct-binding:${lombokMapStructBindingVersion}"
-
-    implementation("com.querydsl:querydsl-jpa:${queryDslVersion}")
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-validation'
-
-    implementation "io.springfox:springfox-swagger-ui:${swaggerVersion}"
-    implementation "io.springfox:springfox-boot-starter:${swaggerVersion}"
-    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
-
-    testImplementation 'org.testcontainers:junit-jupiter'
-    implementation "com.tngtech.archunit:archunit:${archUnitVersion}"
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-}
-
-tasks.named('test',Test) {
-    useJUnitPlatform()
-}
-
-tasks.register('integrationTest',Test) {
-    group = "verification"
-    description = "integrationTest"
-
-    useJUnitPlatform {
-        includeTags("integration")
-        excludeTags("unit")
-    }
-}
-
-tasks.register('unitTest',Test) {
-    group = "verification"
-    description = "unitTest"
-
-    useJUnitPlatform {
-        includeTags("unit")
-        excludeTags("integration")
-    }
-}
-
-def querydslDir = "$buildDir/generated/querydsl"
-
-querydsl {
-    jpa = true
-    querydslSourcesDir = querydslDir
-    library = "com.querydsl:querydsl-apt"
-}
-
-sourceSets {
-    main {
-        java {
-            srcDirs = ["src/main/java", querydslDir]
+    configurations {
+        compileOnly {
+            extendsFrom annotationProcessor
         }
     }
-}
 
-compileQuerydsl {
-    options.annotationProcessorPath = configurations.querydsl
-}
-
-configurations {
-    querydsl.extendsFrom compileClasspath
-}
-
-
-
-spotless {
-    java {
-        targetExclude("build/**")
-        googleJavaFormat().aosp()
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        }
     }
+
+    repositories {
+        mavenCentral()
+    }
+
+
+    dependencies {
+        compileOnly 'org.projectlombok:lombok'
+        compileOnly "org.mapstruct:mapstruct:${mapStructVersion}"
+
+        annotationProcessor 'org.projectlombok:lombok'
+        annotationProcessor "org.mapstruct:mapstruct-processor:${mapStructVersion}"
+        annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+        annotationProcessor "org.projectlombok:lombok-mapstruct-binding:${lombokMapStructBindingVersion}"
+
+        implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    }
+
+    tasks.named('test',Test) {
+        useJUnitPlatform()
+    }
+
+    spotless {
+        java {
+            targetExclude("build/**")
+            googleJavaFormat()
+        }
+    }
+
 }

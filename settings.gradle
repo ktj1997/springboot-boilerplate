@@ -1,1 +1,10 @@
 rootProject.name = 'template'
+
+includeProject(":api", "src/api")
+includeProject(":domain", "src/library/domain")
+includeProject(":infrastructure", "src/library/infrastructure")
+
+def includeProject(String name, String projectPath) {
+    include(name)
+    project(name).setProjectDir(file(projectPath))
+}

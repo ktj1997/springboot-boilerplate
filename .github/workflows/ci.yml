@@ -27,9 +27,3 @@ jobs:
         run: chmod +x gradlew
       - name: Lint Check
         run: ./gradlew spotlessCheck
-
-      - name: UnitTest
-        run: ./gradlew unitTest
-
-      - name: IntegrationTest
-        run: ./gradlew integrationTest
