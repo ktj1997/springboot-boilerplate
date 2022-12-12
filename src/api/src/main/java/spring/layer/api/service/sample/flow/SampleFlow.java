@@ -2,17 +2,17 @@ package spring.layer.api.service.sample.flow;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import spring.layer.api.port.persistence.sample.SampleRepository;
+import spring.layer.api.port.persistence.sample.query.SampleQueryHandler;
 import spring.layer.domain.model.Sample;
 
 @Component
 @RequiredArgsConstructor
 public class SampleFlow {
 
-  private final SampleRepository sampleRepository;
+  private final SampleQueryHandler sampleQueryHandler;
 
   public Sample findSample(Long id) {
-    return sampleRepository
+    return sampleQueryHandler
         .findSampleById(id)
         .orElseThrow(
             () -> {

@@ -9,7 +9,7 @@ import spring.layer.domain.model.Sample;
 
 @Repository
 @RequiredArgsConstructor
-public class SampleJpaRepositoryImpl implements SampleQueryDslRepository {
+public class SampleQueryDslRepositoryImpl implements SampleQueryDslRepository {
 
   private final JPAQueryFactory jpaQueryFactory;
 

@@ -1,4 +1,4 @@
-package spring.layer.api.port.persistence.sample;
+package spring.layer.api.port.persistence.sample.query;
 
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
@@ -8,7 +8,7 @@ import spring.layer.infrastructure.persistence.rdb.jpa.SampleJpaRepository;
 
 @Repository
 @RequiredArgsConstructor
-public class SampleRepository {
+public class SampleQueryHandler {
 
   private final SampleJpaRepository sampleJpaRepository;
 
