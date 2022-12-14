@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import spring.layer.api.service.sample.flow.SampleFlow;
 import spring.layer.api.service.sample.usecase.dto.SampleUseCaseDto;
-import spring.layer.domain.model.Sample;
+import spring.layer.domain.sample.entity.Sample;
 
 @Service
 @RequiredArgsConstructor

@@ -1,6 +1,8 @@
 rootProject.name = 'template'
 
 includeProject(":api", "src/api")
+includeProject(":batch","src/batch")
+includeProject(":consumer","src/consumer")
 includeProject(":domain", "src/library/domain")
 includeProject(":infrastructure", "src/library/infrastructure")
 

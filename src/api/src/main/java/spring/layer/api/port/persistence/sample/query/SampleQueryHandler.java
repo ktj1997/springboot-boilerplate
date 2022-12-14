@@ -3,7 +3,7 @@ package spring.layer.api.port.persistence.sample.query;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
-import spring.layer.domain.model.Sample;
+import spring.layer.domain.sample.entity.Sample;
 import spring.layer.infrastructure.persistence.rdb.jpa.SampleJpaRepository;
 
 @Repository

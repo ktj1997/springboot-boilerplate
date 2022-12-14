@@ -3,7 +3,7 @@ package spring.layer.api.service.sample.flow;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import spring.layer.api.port.persistence.sample.query.SampleQueryHandler;
-import spring.layer.domain.model.Sample;
+import spring.layer.domain.sample.entity.Sample;
 
 @Component
 @RequiredArgsConstructor

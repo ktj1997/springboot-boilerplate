@@ -1,4 +1,4 @@
-package spring.layer.domain.model;
+package spring.layer.domain.sample.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
