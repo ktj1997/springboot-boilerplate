@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import spring.layer.api.config.web.response.ErrorResponse;
+import spring.layer.domain.common.exception.ApiException;
 
 @RestControllerAdvice
 @Order(Ordered.HIGHEST_PRECEDENCE)
