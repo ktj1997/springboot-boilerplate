@@ -1,4 +1,4 @@
-name: ci
+name: api-ci
 
 on:
   pull_request:
@@ -26,4 +26,4 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - name: Lint Check
-        run: ./gradlew spotlessCheck
+        run: ./gradlew api:spotlessCheck
