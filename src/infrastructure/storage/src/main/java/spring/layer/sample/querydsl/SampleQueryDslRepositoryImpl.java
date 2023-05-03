@@ -16,7 +16,10 @@ public class SampleQueryDslRepositoryImpl implements SampleQueryDslRepository {
   @Override
   public Optional<SampleEntity> findWith() {
     SampleEntity sampleEntity =
-        jpaQueryFactory.selectFrom(QSampleEntity.sampleEntity).where(QSampleEntity.sampleEntity.id.eq(1L)).fetchOne();
+        jpaQueryFactory
+            .selectFrom(QSampleEntity.sampleEntity)
+            .where(QSampleEntity.sampleEntity.id.eq(1L))
+            .fetchOne();
     return Optional.of(sampleEntity);
   }
 }

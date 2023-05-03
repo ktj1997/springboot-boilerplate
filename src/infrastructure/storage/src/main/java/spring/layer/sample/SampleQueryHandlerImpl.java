@@ -4,9 +4,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import spring.layer.sample.converter.SampleConverter;
 import spring.layer.domain.sample.model.Sample;
 import spring.layer.domain.sample.port.outbound.persistence.SampleQueryHandler;
+import spring.layer.sample.converter.SampleConverter;
 import spring.layer.sample.jpa.SampleJpaRepository;
 
 @Component
