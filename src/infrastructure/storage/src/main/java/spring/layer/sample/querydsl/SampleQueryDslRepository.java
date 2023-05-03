@@ -1,7 +1,7 @@
-package spring.layer.querydsl;
+package spring.layer.sample.querydsl;
 
 import java.util.Optional;
-import spring.layer.entity.SampleEntity;
+import spring.layer.sample.entity.SampleEntity;
 
 public interface SampleQueryDslRepository {
 

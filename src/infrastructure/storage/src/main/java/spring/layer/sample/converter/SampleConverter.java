@@ -1,8 +1,8 @@
-package spring.layer.converter;
+package spring.layer.sample.converter;
 
 import org.springframework.stereotype.Component;
 import spring.layer.domain.sample.model.Sample;
-import spring.layer.entity.SampleEntity;
+import spring.layer.sample.entity.SampleEntity;
 
 @Component
 public class SampleConverter {

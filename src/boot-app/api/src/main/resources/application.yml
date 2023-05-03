@@ -2,6 +2,8 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+  profiles:
+    active: local
   config:
     import:
       - application-storage-${spring.profiles.active}.yml

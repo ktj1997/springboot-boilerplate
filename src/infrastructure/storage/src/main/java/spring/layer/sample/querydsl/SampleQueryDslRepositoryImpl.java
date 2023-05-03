@@ -1,11 +1,11 @@
-package spring.layer.querydsl;
+package spring.layer.sample.querydsl;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
-import spring.layer.entity.QSample;
-import spring.layer.entity.SampleEntity;
+import spring.layer.sample.entity.QSampleEntity;
+import spring.layer.sample.entity.SampleEntity;
 
 @Repository
 @RequiredArgsConstructor
@@ -16,7 +16,7 @@ public class SampleQueryDslRepositoryImpl implements SampleQueryDslRepository {
   @Override
   public Optional<SampleEntity> findWith() {
     SampleEntity sampleEntity =
-        jpaQueryFactory.selectFrom(QSample.sample).where(QSample.sample.id.eq(1L)).fetchOne();
+        jpaQueryFactory.selectFrom(QSampleEntity.sampleEntity).where(QSampleEntity.sampleEntity.id.eq(1L)).fetchOne();
     return Optional.of(sampleEntity);
   }
 }
