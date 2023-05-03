@@ -11,9 +11,6 @@ pluginManagement {
                 case "com.diffplug.spotless":
                     useVersion(spotlessVersion)
                     break
-                case "com.ewerk.gradle.plugins.querydsl":
-                    useVersion(queryDslPluginVersion)
-                    break
             }
         }
     }
