@@ -2,9 +2,10 @@ ext{
     swaggerVersion = "3.0.0"
 }
 dependencies {
+    runtimeOnly(project(":storage"))
+    runtimeOnly(project(":client"))
 
     implementation(project(":domain"))
-    implementation(project(":infrastructure"))
 
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-validation'

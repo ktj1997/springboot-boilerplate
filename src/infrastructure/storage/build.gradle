@@ -1,0 +1,16 @@
+plugins {
+    id "com.ewerk.gradle.plugins.querydsl"
+}
+
+dependencies {
+    compileOnly(project(":domain"))
+    runtimeOnly 'mysql:mysql-connector-java'
+    implementation("com.querydsl:querydsl-jpa:${project.queryDslVersion}")
+}
+
+jar {
+    enabled = true
+}
+bootJar {
+    enabled = false
+}

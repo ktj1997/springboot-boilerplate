@@ -1,0 +1,11 @@
+
+dependencies {
+    compileOnly(project(":domain"))
+    implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
+}
+jar {
+    enabled = true
+}
+bootJar {
+    enabled = false
+}

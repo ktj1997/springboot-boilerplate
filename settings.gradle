@@ -12,28 +12,22 @@ pluginManagement {
                     useVersion(spotlessVersion)
                     break
                 case "com.ewerk.gradle.plugins.querydsl":
-                    useVersion(queryDslVersion)
+                    useVersion(queryDslPluginVersion)
                     break
             }
         }
     }
 }
 
+rootProject.name = 'template'
+
 def includeProject(String name, String projectPath) {
     include(name)
     project(name).setProjectDir(file(projectPath))
 }
 
-
-rootProject.name = 'template'
-
 includeProject(":api", "src/boot-app/api")
-includeProject(":batch","src/boot-app/batch")
-includeProject(":consumer","src/boot-app/consumer")
-includeProject(":domain", "src/library/domain")
-includeProject(":infrastructure", "src/library/infrastructure")
+includeProject(":domain", "src/domain")
+includeProject(":storage", "src/infrastructure/storage")
+includeProject(":client","src/infrastructure/client")
 
-def springBootVersion = settings.springBootVersion
-def springDependencyManagementVersion = settings.springDependencyManagementVersion
-def spotlessVersion = settings.spotlessVersion
-def queryDslVersion = settings.queryDslVersion
