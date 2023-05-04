@@ -12,23 +12,22 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import spring.layer.api.config.web.response.ErrorResponse;
-import spring.layer.domain.common.exception.ApiException;
 
 @RestControllerAdvice
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class GlobalExceptionHandler {
 
   @ResponseStatus(HttpStatus.BAD_REQUEST)
-  @ExceptionHandler(ApiException.class)
-  public ErrorResponse handleApiException(ApiException ex) {
-    return new ErrorResponse(ex.getCode(), ex.getMessage(), LocalDateTime.now());
+  @ExceptionHandler(RuntimeException.class)
+  public ErrorResponse handleApiException(RuntimeException ex) {
+    return new ErrorResponse(ex.getMessage(), LocalDateTime.now());
   }
 
   @ResponseStatus(HttpStatus.NOT_FOUND)
   @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
   public ErrorResponse handleNotFound(HttpRequestMethodNotSupportedException ex) {
-    GlobalExceptionType type = GlobalExceptionType.HANDLER_NOT_FOUND;
-    return new ErrorResponse(type.getCode(), type.getMessage(), LocalDateTime.now());
+    GlobalExceptionMessage message = GlobalExceptionMessage.HANDLER_NOT_FOUND;
+    return new ErrorResponse(message.getMessage(), LocalDateTime.now());
   }
 
   /**
@@ -37,7 +36,7 @@ public class GlobalExceptionHandler {
   @ResponseStatus(HttpStatus.BAD_REQUEST)
   @ExceptionHandler(MethodArgumentNotValidException.class)
   public ErrorResponse handleMethodArgumentNotValid(MethodArgumentNotValidException ex) {
-    GlobalExceptionType type = GlobalExceptionType.REQUEST_BODY_VALIDATION_FAILURE;
+    GlobalExceptionMessage type = GlobalExceptionMessage.REQUEST_BODY_VALIDATION_FAILURE;
     StringBuilder sb = new StringBuilder();
 
     sb.append(type.getMessage()).append("\n");
@@ -53,13 +52,13 @@ public class GlobalExceptionHandler {
               "field: %s || input: %s || message : %s \n", field, input, exceptionMessage));
     }
 
-    return new ErrorResponse(type.getCode(), sb.toString(), LocalDateTime.now());
+    return new ErrorResponse( sb.toString(), LocalDateTime.now());
   }
 
   @ExceptionHandler({MethodArgumentTypeMismatchException.class})
   public ErrorResponse handleMethodArgumentTypeMismatch(MethodArgumentTypeMismatchException ex) {
-    GlobalExceptionType type = GlobalExceptionType.REQUEST_PARAMETER_BINDING_FAILURE;
+    GlobalExceptionMessage message = GlobalExceptionMessage.REQUEST_PARAMETER_BINDING_FAILURE;
     return new ErrorResponse(
-        type.getCode(), type.getMessage() + ex.getValue(), LocalDateTime.now());
+       message.getMessage() + ex.getValue(), LocalDateTime.now());
   }
 }

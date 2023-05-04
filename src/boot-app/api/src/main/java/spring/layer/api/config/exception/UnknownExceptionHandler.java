@@ -25,7 +25,7 @@ public class UnknownExceptionHandler {
     ex.printStackTrace(new PrintWriter(sw));
     log.error("Internal Server Error Occurred {}", sw.toString());
 
-    GlobalExceptionType type = GlobalExceptionType.INTERNAL_SERVER_ERROR;
-    return new ErrorResponse(type.getCode(), type.getMessage(), LocalDateTime.now());
+    GlobalExceptionMessage message = GlobalExceptionMessage.INTERNAL_SERVER_ERROR;
+    return new ErrorResponse(message.getMessage(), LocalDateTime.now());
   }
 }
