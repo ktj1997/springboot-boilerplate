@@ -1,4 +1,4 @@
-package spring.layer.sample;
+package spring.layer.sample.feign;
 
 import feign.Response;
 import feign.codec.ErrorDecoder;

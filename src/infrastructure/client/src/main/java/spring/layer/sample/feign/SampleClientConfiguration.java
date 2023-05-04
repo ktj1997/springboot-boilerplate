@@ -1,4 +1,4 @@
-package spring.layer.sample;
+package spring.layer.sample.feign;
 
 import feign.Logger;
 import feign.Logger.Level;
@@ -8,7 +8,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@EnableFeignClients("spring.layer")
 public class SampleClientConfiguration {
 
   @Bean

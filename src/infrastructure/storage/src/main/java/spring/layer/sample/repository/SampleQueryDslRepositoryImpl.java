@@ -1,4 +1,4 @@
-package spring.layer.sample.querydsl;
+package spring.layer.sample.repository;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import java.util.Optional;

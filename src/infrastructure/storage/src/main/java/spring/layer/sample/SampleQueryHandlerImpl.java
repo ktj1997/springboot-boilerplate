@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import spring.layer.domain.sample.model.Sample;
 import spring.layer.domain.sample.port.outbound.persistence.SampleQueryHandler;
 import spring.layer.sample.converter.SampleConverter;
-import spring.layer.sample.jpa.SampleJpaRepository;
+import spring.layer.sample.repository.SampleJpaRepository;
 
 @Component
 @RequiredArgsConstructor

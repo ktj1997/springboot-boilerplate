@@ -8,3 +8,6 @@ spring:
     import:
       - application-storage-${spring.profiles.active}.yml
       - application-client-${spring.profiles.active}.yml
+springdoc:
+  swagger-ui:
+    path: /swagger
