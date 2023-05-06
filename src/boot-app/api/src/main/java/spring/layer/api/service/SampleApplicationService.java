@@ -8,4 +8,8 @@ import spring.layer.domain.sample.port.inbound.SampleUseCase;
 @RequiredArgsConstructor
 public class SampleApplicationService {
   private final SampleUseCase sampleUseCase;
+
+  public String sample() {
+    return sampleUseCase.sample();
+  }
 }

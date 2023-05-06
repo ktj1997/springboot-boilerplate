@@ -12,7 +12,7 @@ public class SampleController {
   private final SampleApplicationService sampleApplicationService;
 
   @GetMapping
-  public String ping() {
-    return "pong";
+  public String hello() {
+    return sampleApplicationService.sample();
   }
 }

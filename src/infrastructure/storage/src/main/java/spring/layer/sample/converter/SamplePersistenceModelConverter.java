@@ -5,7 +5,7 @@ import spring.layer.domain.sample.model.Sample;
 import spring.layer.sample.entity.SampleEntity;
 
 @Component
-public class SampleConverter {
+public class SamplePersistenceModelConverter {
 
   public Sample convertEntityToModel(SampleEntity entity) {
     return new Sample(entity.getName());

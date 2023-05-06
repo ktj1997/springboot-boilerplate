@@ -15,9 +15,8 @@ public class SampleCallClientModel {
 
   @Getter
   @AllArgsConstructor
-
   public static class Response{
-
+    private String data;
   }
 
 }

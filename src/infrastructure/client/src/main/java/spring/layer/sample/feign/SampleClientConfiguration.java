@@ -3,7 +3,6 @@ package spring.layer.sample.feign;
 import feign.Logger;
 import feign.Logger.Level;
 import feign.codec.ErrorDecoder;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -11,12 +10,12 @@ import org.springframework.context.annotation.Configuration;
 public class SampleClientConfiguration {
 
   @Bean
-  public ErrorDecoder errorDecoder() {
+  public ErrorDecoder sampleErrorDecoder() {
     return new SampleClientErrorDecoder();
   }
 
   @Bean
-  public Logger.Level feignLoggerLevel(){
+  public Logger.Level feignLoggerLevel() {
     return Level.BASIC;
   }
 }

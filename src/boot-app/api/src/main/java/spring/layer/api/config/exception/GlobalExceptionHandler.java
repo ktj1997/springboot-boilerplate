@@ -20,6 +20,7 @@ public class GlobalExceptionHandler {
   @ResponseStatus(HttpStatus.BAD_REQUEST)
   @ExceptionHandler(RuntimeException.class)
   public ErrorResponse handleApiException(RuntimeException ex) {
+    ex.printStackTrace();
     return new ErrorResponse(ex.getMessage(), LocalDateTime.now());
   }
 
@@ -52,13 +53,12 @@ public class GlobalExceptionHandler {
               "field: %s || input: %s || message : %s \n", field, input, exceptionMessage));
     }
 
-    return new ErrorResponse( sb.toString(), LocalDateTime.now());
+    return new ErrorResponse(sb.toString(), LocalDateTime.now());
   }
 
   @ExceptionHandler({MethodArgumentTypeMismatchException.class})
   public ErrorResponse handleMethodArgumentTypeMismatch(MethodArgumentTypeMismatchException ex) {
     GlobalExceptionMessage message = GlobalExceptionMessage.REQUEST_PARAMETER_BINDING_FAILURE;
-    return new ErrorResponse(
-       message.getMessage() + ex.getValue(), LocalDateTime.now());
+    return new ErrorResponse(message.getMessage() + ex.getValue(), LocalDateTime.now());
   }
 }
