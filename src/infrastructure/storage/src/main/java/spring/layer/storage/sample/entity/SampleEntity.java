@@ -1,4 +1,4 @@
-package spring.layer.sample.entity;
+package spring.layer.storage.sample.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

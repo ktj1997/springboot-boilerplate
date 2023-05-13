@@ -1,14 +1,37 @@
+plugins{
+    id 'com.google.cloud.tools.jib'
+}
+
 dependencies {
     runtimeOnly(project(":storage"))
     runtimeOnly(project(":client"))
 
     implementation(project(":domain"))
+    implementation(project(":logger"))
+    implementation(project(":exception"))
 
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
 
     implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:${project.openApiVersion}"
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+jib {
+    from{
+        image = 'openjdk:17-jdk-slim'
+    }
+    to{
+        image= "docker.io/ktj7916/my-app"
+        auth {
+            username=System.getenv("DOCKER_USERNAME") ?: ""
+            password=System.getenv("DOCKER_PASSWORD") ?: ""
+        }
+        tags=["latest"]
+    }
+    container {
+        jvmFlags = ["-Xms512m", "-Xmx512m"]
+    }
 }
 
 jar{

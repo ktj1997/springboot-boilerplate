@@ -1,4 +1,4 @@
-package spring.layer.sample.feign.model;
+package spring.layer.client.sample.feign.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
