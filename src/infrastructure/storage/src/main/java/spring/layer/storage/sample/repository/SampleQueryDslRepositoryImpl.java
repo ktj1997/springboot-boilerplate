@@ -4,7 +4,7 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
-import spring.layer.sample.entity.QSampleEntity;
+import spring.layer.storage.sample.entity.QSampleEntity;
 import spring.layer.storage.sample.entity.SampleEntity;
 
 @Repository

@@ -11,6 +11,9 @@ pluginManagement {
                 case "com.diffplug.spotless":
                     useVersion(spotlessVersion)
                     break
+                case "com.google.cloud.tools.jib":
+                    useVersion(jibVersion)
+                    break
             }
         }
     }
