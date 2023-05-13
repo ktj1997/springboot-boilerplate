@@ -27,3 +27,6 @@ jobs:
         run: chmod +x gradlew
       - name: Transfer DockerImage To Hub
         run: ./gradlew api:jib
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
