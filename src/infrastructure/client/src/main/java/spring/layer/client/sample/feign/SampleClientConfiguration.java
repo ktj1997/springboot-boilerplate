@@ -1,4 +1,4 @@
-package spring.layer.sample.feign;
+package spring.layer.client.sample.feign;
 
 import feign.Logger;
 import feign.Logger.Level;

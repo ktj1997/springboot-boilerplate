@@ -1,0 +1,10 @@
+dependencies {
+    implementation("ch.qos.logback:logback-classic:${project.logbackVersion}")
+}
+
+jar {
+    enabled = true
+}
+bootJar {
+    enabled = false
+}

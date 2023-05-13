@@ -1,11 +1,11 @@
-package spring.layer.sample.repository;
+package spring.layer.storage.sample.repository;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import spring.layer.sample.entity.QSampleEntity;
-import spring.layer.sample.entity.SampleEntity;
+import spring.layer.storage.sample.entity.SampleEntity;
 
 @Repository
 @RequiredArgsConstructor

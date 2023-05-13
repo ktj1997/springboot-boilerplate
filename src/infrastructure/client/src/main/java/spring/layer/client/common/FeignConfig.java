@@ -1,4 +1,4 @@
-package spring.layer.common;
+package spring.layer.client.common;
 
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.cloud.openfeign.EnableFeignClients;

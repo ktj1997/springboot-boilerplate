@@ -1,8 +1,8 @@
-package spring.layer.sample.converter;
+package spring.layer.storage.sample.converter;
 
 import org.springframework.stereotype.Component;
 import spring.layer.domain.sample.model.Sample;
-import spring.layer.sample.entity.SampleEntity;
+import spring.layer.storage.sample.entity.SampleEntity;
 
 @Component
 public class SamplePersistenceModelConverter {

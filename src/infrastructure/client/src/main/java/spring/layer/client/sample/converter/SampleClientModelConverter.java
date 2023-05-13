@@ -1,8 +1,9 @@
-package spring.layer.sample.converter;
+package spring.layer.client.sample.converter;
 
 import org.springframework.stereotype.Component;
+import spring.layer.client.sample.feign.model.SampleCallModel.Request;
+import spring.layer.client.sample.feign.model.SampleCallModel.Response;
 import spring.layer.domain.sample.port.outbound.client.model.SampleCallClientModel;
-import spring.layer.sample.feign.model.SampleCallModel;
 
 @Component
 public class SampleClientModelConverter {
@@ -10,14 +11,14 @@ public class SampleClientModelConverter {
   /**
    * DomainModelRequest -> InfraModelRequest
    */
-  public SampleCallModel.Request toInfraRequest(SampleCallClientModel.Request clientRequest){
-    return new SampleCallModel.Request("hello");
+  public Request toInfraRequest(SampleCallClientModel.Request clientRequest){
+    return new Request("hello");
   }
 
   /**
    * InfraModelResponse -> DomainModelResponse
    */
-  public SampleCallClientModel.Response toClientResponse(SampleCallModel.Response infraResponse){
+  public SampleCallClientModel.Response toClientResponse(Response infraResponse){
     return new SampleCallClientModel.Response(infraResponse.getData());
   }
 }

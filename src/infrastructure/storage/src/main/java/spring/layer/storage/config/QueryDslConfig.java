@@ -1,4 +1,4 @@
-package spring.layer.config;
+package spring.layer.storage.config;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
