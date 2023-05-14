@@ -1,0 +1,18 @@
+apply plugin: "com.google.cloud.tools.jib"
+
+jib {
+    from{
+        image = 'openjdk:17-jdk-slim'
+    }
+    to{
+        image= "docker.io/ktj7916/my-app"
+        tags = "${project.tag}"
+    }
+    container {
+        jvmFlags= [
+                "-Dspring.profiles.active=${project.tag}",
+                "-Dfile.encoding=UTF-8",
+                "-Duser.timezone=Asia/Seoul"
+        ]
+    }
+}
