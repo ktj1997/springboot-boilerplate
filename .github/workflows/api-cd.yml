@@ -31,4 +31,4 @@ jobs:
       - name: Transfer DockerImage To Hub
         run: |
            chmod +x gradlew
-          ./gradlew -Ptag=prd api:jib
+           ./gradlew -Ptag=prd api:jib
