@@ -27,7 +27,7 @@ jib {
             username=System.getenv("DOCKER_USERNAME") ?: ""
             password=System.getenv("DOCKER_PASSWORD") ?: ""
         }
-        tags=["latest"]
+        tags = project.hasProperty('tag') ? [project.property('tag'), "latest"] : ["latest"] as List<String>
     }
     container {
         jvmFlags = ["-Xms512m", "-Xmx512m"]
