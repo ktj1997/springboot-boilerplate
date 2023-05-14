@@ -26,4 +26,4 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - name: Lint Check
-        run: ./gradlew api:spotlessCheck
+        run: ./gradlew api:spotlessCheck -P=prd
