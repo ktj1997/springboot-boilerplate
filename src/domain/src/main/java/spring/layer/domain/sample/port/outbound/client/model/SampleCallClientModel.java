@@ -9,14 +9,11 @@ public class SampleCallClientModel {
 
   @Getter
   @AllArgsConstructor
-  public static class Request{
-
-  }
+  public static class Request {}
 
   @Getter
   @AllArgsConstructor
-  public static class Response{
+  public static class Response {
     private String data;
   }
-
 }

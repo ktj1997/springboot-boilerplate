@@ -10,18 +10,15 @@ public class SampleCallModel {
 
   @Getter
   @AllArgsConstructor
-  public static class Request{
+  public static class Request {
     private String data;
   }
 
-  /**
-   * Feign의 Decoding은 Jackson의 정책에 따라 NoArgsConstructor + Setter 이다.
-   */
+  /** Feign의 Decoding은 Jackson의 정책에 따라 NoArgsConstructor + Setter 이다. */
   @Getter
   @Setter
   @NoArgsConstructor
-  public static class Response{
+  public static class Response {
     private String data;
   }
-
 }

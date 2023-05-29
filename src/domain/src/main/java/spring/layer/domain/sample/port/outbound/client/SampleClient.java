@@ -5,5 +5,4 @@ import spring.layer.domain.sample.port.outbound.client.model.SampleCallClientMod
 public interface SampleClient {
 
   SampleCallClientModel.Response call(SampleCallClientModel.Request request);
-
 }

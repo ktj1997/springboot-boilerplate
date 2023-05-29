@@ -2,8 +2,6 @@ plugins{
     id 'com.google.cloud.tools.jib'
 }
 
-apply from: "jib.gradle"
-
 dependencies {
     runtimeOnly(project(":storage"))
     runtimeOnly(project(":client"))

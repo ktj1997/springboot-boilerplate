@@ -8,6 +8,4 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableFeignClients("spring.layer")
 @ImportAutoConfiguration(FeignAutoConfiguration.class)
-public class FeignConfig {
-
-}
+public class FeignConfig {}

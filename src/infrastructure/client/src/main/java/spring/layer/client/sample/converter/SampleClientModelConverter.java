@@ -8,17 +8,13 @@ import spring.layer.domain.sample.port.outbound.client.model.SampleCallClientMod
 @Component
 public class SampleClientModelConverter {
 
-  /**
-   * DomainModelRequest -> InfraModelRequest
-   */
-  public Request toInfraRequest(SampleCallClientModel.Request clientRequest){
+  /** DomainModelRequest -> InfraModelRequest */
+  public Request toInfraRequest(SampleCallClientModel.Request clientRequest) {
     return new Request("hello");
   }
 
-  /**
-   * InfraModelResponse -> DomainModelResponse
-   */
-  public SampleCallClientModel.Response toClientResponse(Response infraResponse){
+  /** InfraModelResponse -> DomainModelResponse */
+  public SampleCallClientModel.Response toClientResponse(Response infraResponse) {
     return new SampleCallClientModel.Response(infraResponse.getData());
   }
 }
