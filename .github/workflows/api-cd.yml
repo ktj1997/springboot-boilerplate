@@ -6,8 +6,10 @@ on:
     branches: [ "main" ]
     types: [ closed ] # when PR closed
     paths:
-      - 'libs/**'
       - 'src/api/**'
+      - 'src/core/**'
+      - 'src/domain/**'
+      - 'src/infrastructure/**'
       - '.github/workflows/prd-api-deploy.yml'
 jobs:
   build:
